@@ -9,16 +9,19 @@ namespace Mission2
 {
     internal class DiceRoll
     {
+        //import random and create the array to keep track of scores
         Random random = new Random();
         private int[] scores = new int[11];
         
-        public int[] Roll(int numRolls)
+        public int[] Roll(int numRolls) // Roll method
         {
-            for (int i = 0; i < numRolls; i++)
+            for (int i = 0; i < numRolls; i++) // for the number of rolls specified...
             {
+                // Generate random numbers (1-6) for each die
                 int rollValue1 = random.Next(1, 7);
                 int rollValue2 = random.Next(1, 7);
 
+                // appends to the score array depending on what the combo of the 2 dice is
                 if (rollValue1 + rollValue2 == 2)
                 {
                     scores[0] += 1;
@@ -64,7 +67,7 @@ namespace Mission2
                     scores[10] += 1;
                 }                
             }
-            return scores;
+            return scores; // returns the now populated array to the main program
         }
         
     }
